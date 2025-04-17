@@ -132,4 +132,87 @@ You can use this schema to:
 - Power your own intent engine or device API
 - Build smart home devices, apps, or Kivai-compatible tools
 
+## Running the CLI Demo Script
+
+You can use the `demo.py` script to interact with the mock devices.
+
+### Prerequisites
+
+Before running the script, you need to install the `requests` library.
+
+You can do this by running:
+
+```bash
+pip install requests
+
+---
+
+## 🚀 Running the Demo
+
+### Prerequisites
+Before running the demo, make sure you have installed the required dependencies. You can install the necessary library using pip:
+
+```bash
+pip install requests
+```
+
+### Running the Demo Script
+
+1. Run the mock device server (e.g., `mock-thermostat.py`) by executing the following command:
+
+```bash
+python mock-thermostat.py
+```
+
+2. After the server is running, run the demo script to send requests to the server:
+
+```bash
+python demo.py
+```
+
+### Example Output
+
+When the demo script runs successfully, you should see output like this:
+
+```json
+{
+    "device_id": "kitchen-thermostat-01",
+    "message": "Temperature set to 21°C in kitchen",
+    "status": "success",
+    "timestamp": "2025-04-17T17:34:54.623009Z"
+}
+```
+
+### Example Commands in the Demo Script
+
+```python
+import requests
+import json
+
+# Define the endpoint and headers
+url = "http://127.0.0.1:5001/intent"
+headers = {"Content-Type": "application/json"}
+
+# Create a payload for the thermostat
+payload = {
+    "command": "set temperature",
+    "object": "thermostat",
+    "location": "kitchen",
+    "temperature": 21
+}
+
+# Send POST request
+response = requests.post(url, json=payload, headers=headers)
+
+# Print the response from the server
+print(response.status_code)
+print(response.json())
+```
+
+### Notes
+- Make sure the mock server is running before executing the demo script.
+- This demo simulates the thermostat setting and checks the status of the device by sending JSON data to the server.
+
+## License
+MIT License. See the `LICENSE` file for more information.
 
