@@ -1,5 +1,9 @@
 # kivai-protocol
 
+![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)
+![Status: In Development](https://img.shields.io/badge/Status-In%20Development-blue)
+![JSON Schema: Draft-07](https://img.shields.io/badge/Schema-Draft--07-green)
+
 **The open protocol and API format for enabling communication between humans and intelligent devices using the Kivai language.**
 
 ---
@@ -106,4 +110,26 @@ It can be used to:
 > The schema includes fields like `command`, `object`, `location`, `confidence`, `trigger`, and more.
 
 More versions and extended schemas coming soon!
+
+---
+
+## 🛠️ How to Use the Schema
+
+Want to integrate Kivai into your app or device? Here’s how:
+
+### 🧪 Validate Commands
+Make sure your command structure matches the official schema:
+
+1. Go to [jsonschemavalidator.net](https://www.jsonschemavalidator.net)
+2. Paste the contents of [`kivai-command.schema.json`](./schema/kivai-command.schema.json) into the **Schema** box
+3. Paste your Kivai command into the **Data** box
+4. You should see `No errors found` when your command is valid ✅
+
+### 🔗 Integrate It
+You can use this schema to:
+
+- Validate input from voice assistants or chatbots
+- Power your own intent engine or device API
+- Build smart home devices, apps, or Kivai-compatible tools
+
 
