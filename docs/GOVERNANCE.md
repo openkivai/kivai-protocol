@@ -2,12 +2,11 @@
 
 ## Maintainers
 
-The Kivai Protocol is maintained by the [OpenKivai](https://github.com/openkivai) team.
+The Kivai Protocol is currently maintained by [@ArielMartin-Tech4Life](https://github.com/ArielMartin-Tech4Life).
 
-Current maintainers:
+Want to help?  
+We’re looking for contributors — [join us!](mailto:tech4lifeandbeyond@gmail.com)
 
-- @openkivai (lead)
-- [Looking for contributors — join us!](mailto:openkivai@proton.me)
 
 ## Decision Process
 
