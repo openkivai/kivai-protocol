@@ -5,7 +5,7 @@
 If you discover a security vulnerability within the Kivai Protocol or its code, please follow these steps:
 
 1. **Do not open an issue on GitHub.**
-2. Contact us directly via email at tech4lifeandbeyond@gmail.com (mailto:tech4lifeandbeyond@gmail.com).
+2. Contact us directly via email at [tech4lifeandbeyond@gmail.com](mailto:tech4lifeandbeyond@gmail.com).
 3. Provide a detailed description of the vulnerability, including:
 
     - Steps to reproduce
