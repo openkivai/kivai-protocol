@@ -40,6 +40,9 @@ This repository will define:
   "language": "en",
   "user_id": "abc123"
 }
+```
+
+---
 
 ## 🔗 Integration Goals
 
