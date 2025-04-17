@@ -28,7 +28,7 @@ Project maintainers are responsible for clarifying the standards and taking appr
 
 Instances of abusive, harassing, or otherwise unacceptable behavior may be reported to:
 
-**openkivai@proton.me**
+**tech4lifeandbeyond@gmail.com**
 
 All reports will be reviewed and handled with care and confidentiality.
 
