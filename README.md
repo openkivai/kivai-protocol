@@ -41,8 +41,6 @@ This repository will define:
   "user_id": "abc123"
 }
 
----
-
 ## 🔗 Integration Goals
 
 - Create SDKs and reference libraries (JavaScript, Python, etc.)
