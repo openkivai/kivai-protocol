@@ -1,5 +1,5 @@
 import unittest
-from kivai_validator.validate import validate_command
+from kivai_validator import validate_command
 
 class TestValidator(unittest.TestCase):
     def test_valid_command(self):
