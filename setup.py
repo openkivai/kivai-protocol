@@ -1,12 +1,15 @@
 from setuptools import setup, find_packages
 
 setup(
-    name="kivai-validator",
-    version="0.1",
+    name="kivai_sdk",
+    version="0.1.0",
+    description="SDK for validating Kivai protocol commands",
+    author="OpenKivai Community",
     packages=find_packages(),
     install_requires=["jsonschema"],
-    description="Validator for Kivai JSON-based command schemas",
-    author="OpenKivai Community",
-    license="MIT",
     keywords=["kivai", "validator", "jsonschema", "iot", "commands"],
+    classifiers=[
+        "Programming Language :: Python :: 3",
+        "License :: OSI Approved :: MIT License"
+    ],
 )
