@@ -1,14 +1,14 @@
-from kivai_validator import validate_command
+import json
+from jsonschema import validate, ValidationError
 
-sample_command = {
-    "command": "turn on",
-    "object": "light",
-    "location": "kitchen",
-    "confidence": 0.95,
-    "trigger": "Kivai",
-    "language": "en",
-    "user_id": "abc123"
-}
-
-valid, message = validate_command(sample_command)
-print(message)
+def validate_command(command: dict) -> tuple[bool, str]:
+    """Validates a Kivai command against the official schema."""
+    try:
+        with open("schema/kivai-command.schema.json", "r") as f:
+            schema = json.load(f)
+        validate(instance=command, schema=schema)
+        return True, "✅ Command is valid!"
+    except ValidationError as e:
+        return False, f"❌ Validation failed: {e.message}"
+    except FileNotFoundError:
+        return False, "❌ Schema file not found."
