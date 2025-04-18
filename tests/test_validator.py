@@ -25,7 +25,7 @@ class TestValidator(unittest.TestCase):
 
         valid, message = validate_command(command)
         self.assertFalse(valid)
-        self.assertIn("missing", message.lower())
+        self.assertIn("required", message.lower())
 
 if __name__ == '__main__':
     unittest.main()
