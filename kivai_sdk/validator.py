@@ -1,9 +1,11 @@
 import json
-import os
+import pkg_resources
 from jsonschema import validate, ValidationError
 
-# Load schema from file
-schema_path = os.path.join(os.path.dirname(__file__), "schema", "kivai-command.schema.json")
+# Load schema from package resources
+schema_path = pkg_resources.resource_filename(
+    __name__, "schema/kivai-command.schema.json"
+)
 with open(schema_path, "r") as file:
     kivai_schema = json.load(file)
 
