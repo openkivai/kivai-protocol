@@ -1,6 +1,8 @@
 import unittest
 from kivai_validator import validate_command
 
+SCHEMA_PATH = "kivai_sdk/schema/kivai-command.schema.json"
+
 class TestValidator(unittest.TestCase):
     def test_valid_command(self):
         command = {
