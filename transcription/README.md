@@ -1,23 +1,17 @@
-# Transcription Module
+# 📝 Whisper Transcription Module
 
-This module provides a simple interface to transcribe audio files using OpenAI's Whisper model.
+This module uses OpenAI's Whisper to transcribe audio files to text.
 
-## Files
+## 📂 Files
 
-- `whisper_transcriber.py`: A class that wraps the Whisper transcription model.
-- `run_transcriber.py`: A script to run the transcription process from the command line.
+- `whisper_transcriber.py`: Core logic to load the Whisper model and transcribe audio.
+- `run_transcriber.py`: A simple runner script that uses the transcriber.
 
-## Requirements
+## ▶️ How to Use
 
-Make sure you have the following installed:
+1. Make sure you have installed [ffmpeg](https://ffmpeg.org/download.html) and `openai-whisper`.
 
-- Python 3.10 or newer
-- `whisper` (Install via `pip install openai-whisper`)
-- `ffmpeg` (Must be installed and accessible in your system PATH)
+2. Update `run_transcriber.py` to point to your audio file:
 
-## How to Use
-
-To transcribe an audio file:
-
-```bash
-python run_transcriber.py
+   ```python
+   audio_file = "C:/Users/YourName/PathToYourAudio/sample.mp3"
