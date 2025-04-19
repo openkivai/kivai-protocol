@@ -3,7 +3,7 @@ import os
 from jsonschema import validate, ValidationError
 
 # Load schema from file
-schema_path = os.path.join(os.path.dirname(__file__), "..", "schema", "kivai-command.schema.json")
+schema_path = os.path.join(os.path.dirname(__file__), "schema", "kivai-command.schema.json")
 with open(schema_path, "r") as file:
     kivai_schema = json.load(file)
 
