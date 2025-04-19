@@ -2,8 +2,8 @@ import unittest
 import os
 import sys
 
-# Add the parent directory to sys.path so we can import kivai_sdk
-sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+# Dynamically add the kivai-protocol root to sys.path
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 
 from kivai_sdk.kivai_validator import validate_command
 
@@ -27,9 +27,8 @@ class TestValidator(unittest.TestCase):
 
     def test_invalid_command(self):
         command = {
-            "command": "turn on"  # <- ❌ Missing a comma here caused this dict to be invalid Python
-            # Add a comma at the end of the line above
-            # Missing required fields like "object", "location", etc.
+            "command": "turn on",  # ← fixed comma!
+            # Missing required fields
         }
 
         valid, message = validate_command(command, schema_path=SCHEMA_PATH)
@@ -38,4 +37,5 @@ class TestValidator(unittest.TestCase):
 
 if __name__ == '__main__':
     unittest.main()
+
 
