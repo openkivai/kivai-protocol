@@ -1,6 +1,6 @@
 import unittest
 import os
-from kivai_validator import validate_command
+from kivai_sdk.kivai_validator import validate_command
 
 SCHEMA_PATH = os.path.join(os.path.dirname(__file__), "..", "kivai_sdk", "schema", "kivai-command.schema.json")
 
