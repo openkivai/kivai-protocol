@@ -5,7 +5,7 @@ import sys
 # Dynamically add the kivai-protocol root to sys.path
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 
-from kivai_sdk.kivai_validator import validate_command
+from kivai_sdk.validator import validate_command
 
 SCHEMA_PATH = os.path.join(os.path.dirname(__file__), "..", "kivai_sdk", "schema", "kivai-command.schema.json")
 
