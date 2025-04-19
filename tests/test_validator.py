@@ -1,7 +1,8 @@
 import unittest
+import os
 from kivai_validator import validate_command
 
-SCHEMA_PATH = "kivai_sdk/schema/kivai-command.schema.json"
+SCHEMA_PATH = os.path.join(os.path.dirname(__file__), "..", "kivai_sdk", "schema", "kivai-command.schema.json")
 
 class TestValidator(unittest.TestCase):
     def test_valid_command(self):
@@ -15,7 +16,7 @@ class TestValidator(unittest.TestCase):
             "user_id": "abc123"
         }
 
-        valid, message = validate_command(command)
+        valid, message = validate_command(command, schema_path=SCHEMA_PATH)
         self.assertTrue(valid)
         self.assertIn("valid", message.lower())
 
@@ -25,9 +26,10 @@ class TestValidator(unittest.TestCase):
             # Missing required fields like "object", "location", etc.
         }
 
-        valid, message = validate_command(command)
+        valid, message = validate_command(command, schema_path=SCHEMA_PATH)
         self.assertFalse(valid)
         self.assertIn("required", message.lower())
 
 if __name__ == '__main__':
     unittest.main()
+
