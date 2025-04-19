@@ -1,8 +1,13 @@
 # kivai_sdk/intent_parser.py
-
 import re
+import requests  # New: Used to call the mock device
 
-def parse_input(raw_input: str, user_id="abc123", language="en", trigger="Kivai") -> dict:
+def send_to_device(command: dict):
+    url = "http://127.0.0.1:5000/intent"  # Your Flask mock_light server
+    response = requests.post(url, json=command)
+    return response.json()
+
+def parse_input(raw_input: str, user_id="abc123", language="en", trigger="Kivai") -> tuple[dict, dict]:
     raw_input = raw_input.lower()
 
     command = None
@@ -25,7 +30,7 @@ def parse_input(raw_input: str, user_id="abc123", language="en", trigger="Kivai"
 
     confidence = 0.9 if command and object_ else 0.5
 
-    return {
+    parsed_command = {
         "command": command or "unknown",
         "object": object_ or "unknown",
         "location": location or "unknown",
@@ -34,3 +39,8 @@ def parse_input(raw_input: str, user_id="abc123", language="en", trigger="Kivai"
         "language": language,
         "user_id": user_id
     }
+
+    # Send to device
+    response = send_to_device(parsed_command)
+
+    return parsed_command, response
