@@ -6,6 +6,9 @@ setup(
     description="SDK for validating Kivai protocol commands",
     author="OpenKivai Community",
     packages=find_packages(),
+    package_data={
+        'kivai_sdk': ['schema/kivai-command.schema.json'],
+    },
     install_requires=["jsonschema"],
     keywords=["kivai", "validator", "jsonschema", "iot", "commands"],
     classifiers=[
@@ -13,3 +16,4 @@ setup(
         "License :: OSI Approved :: MIT License"
     ],
 )
+
