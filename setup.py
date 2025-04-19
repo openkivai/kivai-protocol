@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name="kivai_sdk",
-    version="0.1.1",
+    version="0.1.2",
     description="SDK for validating Kivai protocol commands",
     author="OpenKivai Community",
     packages=find_packages(),
