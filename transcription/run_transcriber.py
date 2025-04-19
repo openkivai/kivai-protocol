@@ -1,7 +1,7 @@
 from whisper_transcriber import WhisperTranscriber
 
 def main():
-    audio_file = "sample.mp3"  # Replace with the actual file path
+    audio_file = "C:/Users/Master/Desktop/sample.mp3"  # Full path to the file
     transcriber = WhisperTranscriber(model_size="base")
     text = transcriber.transcribe(audio_file)
     print("\n--- Transcription Output ---\n")
