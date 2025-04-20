@@ -1,4 +1,4 @@
-import unittest
+iimport unittest
 from unittest.mock import patch
 from kivai_sdk.intent_parser import parse_input
 
@@ -13,6 +13,6 @@ class TestIntentPipeline(unittest.TestCase):
         raw_input = "Please turn on the kitchen light"
         command, status = parse_input(raw_input)
 
-        self.assertIn("intent", command)
-        self.assertEqual(command["intent"], "TURN_ON_LIGHT")
+        self.assertEqual(command["command"].lower(), "turn on")
+        self.assertEqual(command["object"], "light")
 
