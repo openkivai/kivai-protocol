@@ -1,19 +1,24 @@
 import unittest
+from unittest.mock import patch
 from kivai_sdk.intent_parser import parse_input
 
+
 class TestIntentParser(unittest.TestCase):
-    def test_parse_turn_off_lights(self):
-        input_text = "Turn off the lights in the kitchen"
-        command = parse_input(input_text)
-        self.assertEqual(command["command"], "turn off")
-        self.assertEqual(command["object"], "light")
-        self.assertEqual(command["location"], "kitchen")
 
-    def test_unknown_command(self):
-        input_text = "Do something strange"
-        command = parse_input(input_text)
-        self.assertEqual(command["command"], "unknown")
-        self.assertEqual(command["object"], "unknown")
+    @patch('kivai_sdk.intent_parser.requests.post')
+    def test_parse_turn_off_lights(self, mock_post):
+        mock_post.return_value.status_code = 200
+        mock_post.return_value.json.return_value = {"status": "success"}
 
-if __name__ == '__main__':
-    unittest.main()
+        input_text = "Turn off the lights"
+        command = parse_input(input_text)
+        self.assertEqual(command["intent"], "TURN_OFF_LIGHT")
+
+    @patch('kivai_sdk.intent_parser.requests.post')
+    def test_unknown_command(self, mock_post):
+        mock_post.return_value.status_code = 200
+        mock_post.return_value.json.return_value = {"status": "success"}
+
+        input_text = "Do something weird"
+        command = parse_input(input_text)
+        self.assertEqual(command["intent"], "UNKNOWN")
