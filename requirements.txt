@@ -1,0 +1,8 @@
+flask
+requests
+fuzzywuzzy[speedup]
+python-dotenv
+openai
+tqdm
+nltk
+spacy
