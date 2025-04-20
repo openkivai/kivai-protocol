@@ -11,7 +11,7 @@ class TestIntentParser(unittest.TestCase):
         mock_post.return_value.json.return_value = {"status": "success"}
 
         input_text = "Turn off the lights"
-        command = parse_input(input_text)
+        command, status = parse_input(input_text)
         self.assertEqual(command["intent"], "TURN_OFF_LIGHT")
 
     @patch('kivai_sdk.intent_parser.requests.post')
@@ -20,5 +20,5 @@ class TestIntentParser(unittest.TestCase):
         mock_post.return_value.json.return_value = {"status": "success"}
 
         input_text = "Do something weird"
-        command = parse_input(input_text)
+        command, status = parse_input(input_text)
         self.assertEqual(command["intent"], "UNKNOWN")
