@@ -12,7 +12,8 @@ class TestIntentParser(unittest.TestCase):
 
         input_text = "Turn off the lights"
         command, status = parse_input(input_text)
-        self.assertEqual(command["intent"], "TURN_OFF_LIGHT")
+        self.assertEqual(command["command"].lower(), "turn off")
+        self.assertEqual(command["object"], "light")
 
     @patch('kivai_sdk.intent_parser.requests.post')
     def test_unknown_command(self, mock_post):
@@ -21,4 +22,4 @@ class TestIntentParser(unittest.TestCase):
 
         input_text = "Do something weird"
         command, status = parse_input(input_text)
-        self.assertEqual(command["intent"], "UNKNOWN")
+        self.assertEqual(command["command"].lower(), "unknown")
