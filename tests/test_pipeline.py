@@ -11,7 +11,8 @@ class TestIntentPipeline(unittest.TestCase):
         mock_post.return_value.json.return_value = {"status": "success"}
 
         raw_input = "Please turn on the kitchen light"
-        parsed = parse_input(raw_input)
+        command, status = parse_input(raw_input)
 
-        self.assertIn("intent", parsed)
-        self.assertEqual(parsed["intent"], "TURN_ON_LIGHT")
+        self.assertIn("intent", command)
+        self.assertEqual(command["intent"], "TURN_ON_LIGHT")
+
