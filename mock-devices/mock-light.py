@@ -7,7 +7,9 @@ app = Flask(__name__)
 @app.route('/intent', methods=['POST'])
 def handle_intent():
     data = request.get_json()
-    
+  
+    print("INCOMING DATA:", data)
+
     command = data.get("command")
     obj = data.get("object")
     location = data.get("location")
