@@ -14,6 +14,6 @@ class TestIntegration(unittest.TestCase):
         command, status = parse_input(input_text)
 
         self.assertIsInstance(command, dict)
-        self.assertIn("intent", command)
-        self.assertEqual(command["intent"], "TURN_OFF_LIGHT")
+        self.assertEqual(command["command"].lower(), "turn off")
+        self.assertEqual(command["location"], "living room")
 
