@@ -11,8 +11,9 @@ class TestIntegration(unittest.TestCase):
         mock_post.return_value.json.return_value = {"status": "success"}
 
         input_text = "Can you turn off the lights in the living room?"
-        command = parse_input(input_text)
+        command, status = parse_input(input_text)
 
         self.assertIsInstance(command, dict)
         self.assertIn("intent", command)
         self.assertEqual(command["intent"], "TURN_OFF_LIGHT")
+
