@@ -1,8 +1,7 @@
-flask
 requests
-fuzzywuzzy[speedup]
-python-dotenv
-openai
-tqdm
-nltk
-spacy
+flask
+scikit-learn
+pandas
+numpy
+unittest
+
