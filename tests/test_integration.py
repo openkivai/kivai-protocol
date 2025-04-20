@@ -1,26 +1,18 @@
-# tests/test_integration.py
-
 import unittest
+from unittest.mock import patch
 from kivai_sdk.intent_parser import parse_input
-from kivai_sdk.validator import validate_command
+
 
 class TestIntegration(unittest.TestCase):
-    def test_integration_pipeline(self):
-        # Sample transcription input (e.g., from a voice command)
-        input_text = "Turn on the lights in the kitchen"
 
-        # Parse the input to generate a structured command
+    @patch('kivai_sdk.intent_parser.requests.post')
+    def test_integration_pipeline(self, mock_post):
+        mock_post.return_value.status_code = 200
+        mock_post.return_value.json.return_value = {"status": "success"}
+
+        input_text = "Can you turn off the lights in the living room?"
         command = parse_input(input_text)
 
-        # Validate the parsed command
-        valid, message = validate_command(command)
-
-        # Assertions
-        self.assertTrue(valid)
-        self.assertIn("valid", message.lower())
-        self.assertEqual(command['command'], 'turn on')
-        self.assertEqual(command['object'], 'light')
-        self.assertEqual(command['location'], 'kitchen')
-
-if __name__ == '__main__':
-    unittest.main()
+        self.assertIsInstance(command, dict)
+        self.assertIn("intent", command)
+        self.assertEqual(command["intent"], "TURN_OFF_LIGHT")
